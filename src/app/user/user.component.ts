@@ -80,7 +80,7 @@ export class UserComponent implements OnInit, OnDestroy {
     }
   }
 
-  public saveNewUser(): void {
+  public saveNewUser(): void {//clicks onAddNewUser
     this.clickButton('new-user-save');
   }
 

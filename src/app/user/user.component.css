@@ -7,3 +7,12 @@ float:right
     border-radius: 0.375rem 0 0 0.375rem !important;
 
 }
+.imgst {
+    object-fit: cover;
+  }
+
+.imgcent {
+    border: 1em;
+    border-color: black;
+    
+  }

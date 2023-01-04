@@ -66,7 +66,7 @@
           <tbody *ngFor="let appUser of users">
             <tr class="text-center">
               <td (click)="onSelectUser(appUser)">
-                <img height="40" width="40" src="{{appUser?.profileImageUrl}}" class="rounded-circle img-fluid img-thumbnail" alt=""/>
+                <img height="40" width="40" src="{{appUser?.profileImageUrl}}" class="rounded-circle imgst" alt=""/>
               </td>
               <td (click)="onSelectUser(appUser)">{{appUser?.userId}}</td>
               <td (click)="onSelectUser(appUser)">{{appUser?.firstName}}</td>
@@ -127,7 +127,7 @@
                           <div class="col-12 col-sm-auto">
                             <div class="mx-auto" style="width: 120px;">
                               <div class="d-flex justify-content-center align-items-center rounded">
-                                <img class="rounded" height="135" width="135" src="{{user.profileImageUrl}}" alt="">
+                                <img class="rounded imgst" height="135" width="135" src="{{user.profileImageUrl}}" alt="">
                               </div>
                               <div *ngIf="fileStatus?.status==='progress'" class="progress mt-1">
                                 <div class="progress-bar bg-info" role="progressbar"
@@ -291,7 +291,7 @@
                     <div class="col-12 col-sm-auto">
                       <div class="mx-auto" style="width: 120px;">
                         <div class="d-flex justify-content-center align-items-center rounded">
-                          <img class="rounded" height="120" width="120" src="{{selectedUser?.profileImageUrl}}" alt="{{selectedUser?.firstName}}">
+                          <img class="rounded imgst" height="120" width="120" src="{{selectedUser?.profileImageUrl}}" alt="{{selectedUser?.firstName}}">
                         </div>
                       </div>
                     </div>
@@ -399,9 +399,6 @@
                       <input type="file" accept="image/*" name="profileImage"
                       (change)="onProfileImageChange($event)"
                         class="form-control">
-                      <label class="custom-file-label"><span [hidden]="!fileName">{{ fileName }}</span>
-                        <span [hidden]="fileName"></span>
-                      </label>
                     </div>
                   </div>
                   <fieldset class="form-group">
@@ -483,9 +480,6 @@
                   <input type="file" accept="image/*" [disabled]="!isAdminOrManager" name="profileImage"
                   (change)="onProfileImageChange($event)"
                     class="form-control">
-                  <label class="custom-file-label"><span [hidden]="!fileName">{{ fileName }}</span>
-                    <span [hidden]="fileName"></span>
-                  </label>
                 </div>
               </div>
               <fieldset class="form-group">
