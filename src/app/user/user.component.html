@@ -397,7 +397,7 @@
                     <div class="custom-file">
                       <label for="profileImage">Profile Picture </label>
                       <input type="file" accept="image/*" name="profileImage"
-                      (change)="onProfileImageChange($any($event).target.files[0].name, $any($event).target.files[0])"
+                      (change)="onProfileImageChange($event)"
                         class="form-control">
                       <label class="custom-file-label"><span [hidden]="!fileName">{{ fileName }}</span>
                         <span [hidden]="fileName"></span>
@@ -481,7 +481,7 @@
                 <div class="custom-file">
                   <label for="profileImage">Profile Picture </label>
                   <input type="file" accept="image/*" [disabled]="!isAdminOrManager" name="profileImage"
-                  (change)="onProfileImageChange($any($event).target.files[0].name, $any($event).target.files[0])"
+                  (change)="onProfileImageChange($event)"
                     class="form-control">
                   <label class="custom-file-label"><span [hidden]="!fileName">{{ fileName }}</span>
                     <span [hidden]="fileName"></span>
@@ -566,7 +566,7 @@
               </div>
               <div class="custom-file">
                 <input type="file" accept="image/*" name="profileImage"
-                  (change)="onProfileImageChange($any($event).target.files[0].name, $any($event).target.files[0])"
+                  (change)="onProfileImageChange($event)"
                   class="custom-file-input">
                 <label class="custom-file-label"><span [hidden]="!fileName">{{fileName}}</span>
                   <span [hidden]="fileName">Choose File</span>
@@ -603,7 +603,7 @@
       <!-- profile image change form -->
     <form enctype="multipart/form-data" style="display:none;">
         <input type="file"
-          (change)="onProfileImageChange($any($event).files[0].name, $any($event).target.files[0]); onUpdateProfileImage()"
+          (change)="onProfileImageChange($event); onUpdateProfileImage()"
          name="profile-image-input" id="profile-image-input" placeholder="file" accept="image/*" />
     </form>
   

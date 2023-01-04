@@ -71,10 +71,13 @@ export class UserComponent implements OnInit, OnDestroy {
     this.clickButton('openUserInfo');
   }
 
-  public onProfileImageChange(fileName: string, profileImage: File): void {
-    console.log(fileName,profileImage);
-    this.fileName =  fileName;
-    this.profileImage = profileImage;
+  public onProfileImageChange(event: Event): void {
+    console.log(event);
+    const target = event.target as HTMLInputElement;
+    if(target.files != null){
+    this.fileName =  target.files[0].name;
+    this.profileImage = target.files[0];
+    }
   }
 
   public saveNewUser(): void {
