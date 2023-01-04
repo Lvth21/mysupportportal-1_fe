@@ -54,14 +54,11 @@ export class UserComponent implements OnInit, OnDestroy {
           this.refreshing = false;
           if (showNotification) {
             this.sendNotification(NotificationType.SUCCESS, `${response.length} user(s) loaded successfully.`);
-            console.log("notification sent");
           }
-          console.log("here");
         }),
         catchError((errorResponse: HttpErrorResponse) => {
           this.sendNotification(NotificationType.ERROR, errorResponse.error.message);
           this.refreshing = false;
-          console.log("error");
           return of(errorResponse);
         })
       ).subscribe()
@@ -75,6 +72,7 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   public onProfileImageChange(fileName: string, profileImage: File): void {
+    console.log(fileName,profileImage);
     this.fileName =  fileName;
     this.profileImage = profileImage;
   }
