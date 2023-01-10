@@ -447,7 +447,7 @@
               <div class="form-group">
                 <label for="firstName">First Name</label>
                 <input type="text" name="firstName" [disabled]="!isAdminOrManager" required
-                  [(ngModel)]="editUser.firstName" class="form-control">
+                  [(ngModel)]="editUser.firstName" class="form-control"><!--[(ngModel)] is two way binding, if something changes here, changes in component as well and viceversa-->
               </div>
               <div class="form-group">
                 <label for="lastName">Last Name</label>

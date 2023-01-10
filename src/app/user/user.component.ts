@@ -37,7 +37,6 @@ export class UserComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.user = this.authenticationService.getUserFromLocalCache();
     this.getUsers(true);
-    console.log(this.user);
   }
   //changes tab name
   public changeTitle(title: string): void {
@@ -72,7 +71,6 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   public onProfileImageChange(event: Event): void {
-    console.log(event);
     const target = event.target as HTMLInputElement;
     if(target.files != null){
     this.fileName =  target.files[0].name;
@@ -174,7 +172,7 @@ export class UserComponent implements OnInit, OnDestroy {
         break;
       case HttpEventType.Response:
         if (event.status === 200) {
-          this.user.profileImageUrl = `${event.body.profileImageUrl}?time=${new Date().getTime()}`;
+          this.user.profileImageUrl = `${event.body.profileImageUrl}?time=${new Date().getTime()}`;// adding the date after the ? force the web to refresh te image somehow... we need to check this...
           this.sendNotification(NotificationType.SUCCESS, `${event.body.firstName}\'s profile image updated successfully`);
           this.fileStatus.status = 'done';
           break;
@@ -199,7 +197,8 @@ export class UserComponent implements OnInit, OnDestroy {
 
   public onResetPassword(emailForm: NgForm): void {
     this.refreshing = true;
-    const emailAddress = emailForm.value['reset-password-email'];
+    const emailAddress = emailForm.value['reset-password-email'];//calls the value from the form
+    console.log(emailAddress);
     this.subscriptions.push(
       this.userService.resetPassword(emailAddress).pipe(
         tap((response: CustomHttpResponse) => {
